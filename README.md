@@ -1,5 +1,3 @@
-# bunny-dolphins
-
 ```
 ___.                                           .___     .__         .__    .__               
 \_ |__  __ __  ____   ____ ___.__.           __| _/____ |  | ______ |  |__ |__| ____   ______
@@ -42,5 +40,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
 ### Style Guide
 See [Figma Skiss](https://www.figma.com/file/UeUGVefSdgio0sRxPFccJI/AirBean-v.1.0?node-id=0%3A1).
