@@ -9,7 +9,7 @@ ___.                                           .___     .__         .__    .__
      \/           \/     \/\/                   \/           |__|        \/        \/     \/ 
 
 
-**Figmaskiss:** https://www.figma.com/file/UeUGVefSdgio0sRxPFccJI/AirBean-v.1.0?node-id=0%3A1
+
 
 ## Instruktioner
 
@@ -44,3 +44,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+See [Figma Skiss](https://www.figma.com/file/UeUGVefSdgio0sRxPFccJI/AirBean-v.1.0?node-id=0%3A1).
