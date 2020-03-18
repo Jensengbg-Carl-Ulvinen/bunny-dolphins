@@ -8,8 +8,6 @@ ___.                                           .___     .__         .__    .__
  |___  /____/|___|  /___|  / ____|         \____ |\____/|____/   __/|___|  /__|___|  /____  >
      \/           \/     \/\/                   \/           |__|        \/        \/     \/ 
 
-     ```
-     ```
 
 **Figmaskiss:** https://www.figma.com/file/UeUGVefSdgio0sRxPFccJI/AirBean-v.1.0?node-id=0%3A1
 
