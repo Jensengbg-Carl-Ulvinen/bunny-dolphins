@@ -18,6 +18,9 @@ ___.                                           .___     .__         .__    .__
 * Hämta alla produkter med fetch
 * Kunna skicka sin order och få ett svar med en ETA och ordernummer
 
+### Style Guide
+See [Figma Skiss](https://www.figma.com/file/UeUGVefSdgio0sRxPFccJI/AirBean-v.1.0?node-id=0%3A1).
+
 ## Project setup
 ```
 npm install
@@ -40,6 +43,3 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Style Guide
-See [Figma Skiss](https://www.figma.com/file/UeUGVefSdgio0sRxPFccJI/AirBean-v.1.0?node-id=0%3A1).
