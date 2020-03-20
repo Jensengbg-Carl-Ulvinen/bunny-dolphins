@@ -1,54 +1,48 @@
 <template>
-  <div class="nav">
-    <!-- <button class="btn exit-btn" @click="">Close</button> -->
-    <div class="meny">
-      <ul><h1>Meny</h1></ul>
-      <ul><h1>Vårt Kaffe</h1></ul>
-      <ul><h1>Orderstatus</h1></ul>
-    </div>
+  <div class="nav_wrapper">
+    <section class="nav_content">
+      <div class="nav_header">
+        <button @click="closeNav" class="nav_button">
+          <img src="../assets/graphics/close.svg" alt />
+        </button>
+      </div>
+      <section class="nav">
+        <p @click="menu">Meny</p>
+        <span class="line"></span>
+        <p @click="about">Vårt Kaffe</p>
+        <!-- todo: orderstatus -->
+      </section>
+    </section>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'nav',
-  props: {
-    msg: String
+  methods: {
+    closeNav() {
+      this.$emit("closeNav");
+    },
+
+    menu() {
+      if (this.$route.path !== "/menu") {
+        this.$router.push("/menu");
+      } else {
+        this.closeNav();
+      }
+    },
+
+    about() {
+      if (this.$route.path !== "/about") {
+        this.$router.push("/about");
+      } else {
+        this.closeNav();
+      }
+    }
   }
-}
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-* {
-position: relative;
-width: 375px;
-height: 667px;
-background: #2F2926;
-}
-
-meny {
-  /* Meny */
-
-position: absolute;
-width: 311px;
-height: 45px;
-left: 32px;
-top: 235px;
-
-font-family: PT Serif;
-font-style: normal;
-font-weight: bold;
-font-size: 32px;
-line-height: 120%;
-/* or 38px */
-
-display: flex;
-align-items: center;
-text-align: center;
-
-color: #FFFFFF;
-}
+<style lang="scss" scoped>
+@import "../assets/scss/variables.scss";
 
 </style>
