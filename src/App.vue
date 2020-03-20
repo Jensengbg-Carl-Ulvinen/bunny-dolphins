@@ -7,6 +7,7 @@
 <script>
 import nav from './components/nav'
 import menu from './components/menu'
+import about from './views/about'
 
 export default {
   name: 'App',
@@ -21,5 +22,5 @@ export default {
 <style lang="scss">
 // google fonts
 @import url("https://fonts.googleapis.com/css?family=PT+Serif|Rufina|Work+Sans&display=swap");
-@import "../assets/scss/variables.scss";
+@import "src/assets/scss/variables.scss";
 </style>
