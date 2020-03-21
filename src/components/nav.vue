@@ -3,7 +3,7 @@
     <section class="nav_content">
       <div class="nav_header">
         <button @click="closeNav" class="nav_button">
-          <img src="../assets/graphics/close.svg" alt />
+          <img src="../src/assets/graphics/close.svg" alt />
         </button>
       </div>
       <section class="nav">

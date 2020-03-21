@@ -4,7 +4,7 @@
     <section class="about_content">
       <div class="header">
         <button @click="nav" class="nav_button">
-          <img src="../assets/graphics/navicon.svg" alt />
+          <img src="../src/assets/graphics/navicon.svg" alt />
         </button>
       </div>
       <section class="about_main">
