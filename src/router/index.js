@@ -1,32 +1,29 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import landing from "../components/landing.vue"
-import about from "../views/about.vue";
-import menu from "../components/menu.vue";
+import Landing from "../views/landing.vue"
+import About from "../views/about.vue";
+import Menu from "../components/menu.vue";
 // from here we need to import order status
 
 
 Vue.use(VueRouter);
 
 const routes = [
-  // path to landing
-  /*{
-    path: "/",
+  {
+    path: "/landing",
     name: "landing",
-    component: landing
+    component: Landing
   },
-  */
   {
     path: "/about",
     name: "about",
-    component: about
+    component: About
   },
   {
     path: "/menu",
     name: "menu",
-    component: menu
+    component: Menu
   }
-
   //add path to order status
   /*,
   {
@@ -37,7 +34,6 @@ const routes = [
 ];
 
 const router = new VueRouter({
-
   routes
 });
 

@@ -1,22 +1,24 @@
 <template>
   <div id="app">
     <router-view />
+    <Landing />
   </div>
 </template>
 
 <script>
-import nav from './components/nav'
-import menu from './components/menu'
-import about from './views/about'
+import Landing from "../src/views/landing";
+import Nav from "../src/components/nav";
+import Menu from "../src/components/menu";
+import About from "../src/views/about";
 
 export default {
-  name: 'App',
   components: {
-    nav,
-    menu,
-    about
+    Landing,
+    Nav,
+    Menu,
+    About
   }
-}
+};
 </script>
 
 <style lang="scss">
