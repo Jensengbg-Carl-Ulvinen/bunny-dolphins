@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import Landing from "../src/views/landing";
+import Landing from '../src/views/landing'
 export default {
   components: {
     Landing
   }
-};
+}
 </script>
 
 <style>

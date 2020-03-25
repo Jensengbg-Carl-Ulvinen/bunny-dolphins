@@ -4,7 +4,7 @@
       <img id="leaf-left" src="../assets/graphics/intro-graphic-left.svg" />
     </div>
     <div id="center">
-      <img id="title" src="../assets/graphics/airbean-landing.svg" />
+      <img @click="navigate()" id="title" src="../assets/graphics/airbean-landing.svg" />
     </div>
     <div id="right-side">
       <img id="leaf-right" src="../assets/graphics/intro-graphic-right.svg" />
@@ -14,7 +14,11 @@
 
 <script>
 export default {
-  methods: {}
+  methods: {
+    navigate: function () {
+      this.$router.push({ path: '/about' })
+    }
+  }
 }
 </script>
 
