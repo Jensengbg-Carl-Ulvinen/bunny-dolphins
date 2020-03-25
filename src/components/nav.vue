@@ -10,7 +10,10 @@
         <p @click="menu">Meny</p>
         <span class="line"></span>
         <p @click="about">Vårt Kaffe</p>
-        <!-- todo: orderstatus -->
+        <span class="line"></span>
+        <p @click="min_profil">Min Profil </p>
+        <span class="line"></span>
+        <p @click="orderstatus">Orderstatus </p>
       </section>
     </section>
   </div>
@@ -40,9 +43,58 @@ export default {
     }
   }
 };
+
+//to do: need to add orderstatus route/store
+
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
 
+//todo: need to fix nav_wrapper height so it scales
+
+.nav_wrapper {
+  width: 100%;
+}
+
+.nav_content {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: $black;
+
+  .nav_header {
+    display: flex;
+    align-self: flex-start;
+
+    .nav_button {
+      height: 4.6rem;
+      width: 4.6rem;
+      border-radius: 100%;
+      border: none;
+      padding: 1rem;
+    }
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    height: 60rem;
+
+    p {
+      font-size: 3.2rem;
+      font-family: $PT;
+      margin: 2rem;
+    }
+
+    .line {
+      width: 5rem;
+      border-bottom: 0.1rem solid #ffffff33;
+    }
+  }
+}
 </style>
