@@ -4,6 +4,7 @@ import Landing from '../views/landing.vue'
 import About from '../views/about.vue'
 import Menu from '../components/menu.vue'
 import Cart from '../components/cart.vue'
+import Status from '../components/status.vue'
 // from here we need to import order status
 
 Vue.use(VueRouter)
@@ -27,6 +28,11 @@ const routes = [
     path: '/cart',
     name: 'cart',
     component: Cart
+  },
+  {
+    path: '/status',
+    name: 'status',
+    component: Status
   }
 ]
 
