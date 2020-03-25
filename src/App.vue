@@ -6,19 +6,13 @@
 </template>
 
 <script>
-import Landing from "../src/views/landing";
-import Nav from "../src/components/nav";
-import Menu from "../src/components/menu";
-import About from "../src/views/about";
+import Landing from '../src/views/landing'
 
 export default {
   components: {
-    Landing,
-    Nav,
-    Menu,
-    About
+    Landing
   }
-};
+}
 </script>
 
 <style lang="scss">

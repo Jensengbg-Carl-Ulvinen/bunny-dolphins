@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import Nav from "../components/nav";
+import Nav from '../components/nav'
 export default {
   components: {
     Nav
@@ -33,18 +33,18 @@ export default {
   data: () => {
     return {
       openNav: false
-    };
+    }
   },
   methods: {
-    nav() {
+    nav () {
       if (this.openNav === true) {
-        this.openNav = false;
+        this.openNav = false
       } else {
-        this.openNav = true;
+        this.openNav = true
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

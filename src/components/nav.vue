@@ -19,30 +19,29 @@
 <script>
 export default {
   methods: {
-    closeNav() {
-      this.$emit("closeNav");
+    closeNav () {
+      this.$emit('closeNav')
     },
 
-    menu() {
-      if (this.$route.path !== "/menu") {
-        this.$router.push("/menu");
+    menu () {
+      if (this.$route.path !== '/menu') {
+        this.$router.push('/menu')
       } else {
-        this.closeNav();
+        this.closeNav()
       }
     },
 
-    about() {
-      if (this.$route.path !== "/about") {
-        this.$router.push("/about");
+    about () {
+      if (this.$route.path !== '/about') {
+        this.$router.push('/about')
       } else {
-        this.closeNav();
+        this.closeNav()
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
-
 </style>
