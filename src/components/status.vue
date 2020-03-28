@@ -15,7 +15,13 @@
 </template>
 
 <script>
+import {mapGetters, mapActions } from 'vuex';
 export default {
+  name: "Status",
+  methods: {
+    ...mapActions(["sendOrder"])
+  },
+  computed: mapGetters(['orderStatus'])
 
 }
 </script>
