@@ -8,7 +8,7 @@
 <script>
 import Landing from "../src/views/landing";
 import Nav from "../src/components/nav";
-import Menu from "../src/components/menu";
+import Menu from "../src/views/menu";
 import About from "../src/views/about";
 
 export default {
