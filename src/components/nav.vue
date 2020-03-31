@@ -88,6 +88,7 @@ export default {
     p {
       font-size: 3.2rem;
       font-family: $PT;
+      cursor: pointer;
       margin: 2rem;
     }
 

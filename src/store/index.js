@@ -1,68 +1,52 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import fetchMenu from "@/store/fetchMenu.js";
+import sendOrder from "@/store/sendOrder.js";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    menu: [],
     cart: [],
-    //orderStatus: ""
+    numberOfCartItems: 0,
+    showCart: false,
+    isOpen: false,
+    loadingOrder: false
   },
   mutations: {
-    menu(state, data) {
-      state.menu = data;
+    addItemToCart(state, menuItem) {
+      state.cart.push(menuItem);
+      state.numberOfCartItems++;
     },
-
-   // orderStatus(state, data) {
-   //   state.orderStatus = data;
-   // } ,
-
-    cart(state, data) {
-      state.cart.push(data);
+    toggleMenu(state, toggle) {
+      state.isOpen = toggle
+    },
+    removeItemFromCart(state, cartItemId) {
+      const cartItemArrayIndex = state.cart.map(function(cartItem) {
+        return cartItem.id;
+      }).indexOf(cartItemId);
+      state.cart.splice(cartItemArrayIndex, 1);
+    },
+    changeQuantity(state, payload) {
+      const item = state.cart.find(item => item.id === payload.cartItemId);
+      if (payload.action === 'add') {
+        item.quantity++;
+        state.numberOfCartItems++;
+      } else if (payload.action === 'subtract') {
+        if (item.quantity != 0) {
+          item.quantity--;
+          state.numberOfCartItems--;
+        }
+      }
+    },
+    toggleCart(state, toggle) {
+      state.showCart = toggle;
     }
   },
-
-  actions: {
-    async getMenu(ctx) {
-      const url = "http://localhost:5000/api/beans";
-      fetch(url, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data) {
-            ctx.commit("menu", data);
-            console.log(data);
-          }
-        })
-        .catch(error => {
-          console.error("Error:", error);
-        });
-    },
-    async sendOrder(ctx) {
-      const url = "http://localhost:5000/api/beans";
-      fetch(url, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data) {
-            ctx.commit("orderStatus", data);
-            console.log(data);
-          }
-        })
-        .catch(error => {
-          console.error("Error:", error);
-        });
-    }
-  },
-  modules: {}
+actions: {},
+getters: {},
+modules: {
+  menu: fetchMenu,
+  order: sendOrder
+}
 });
-

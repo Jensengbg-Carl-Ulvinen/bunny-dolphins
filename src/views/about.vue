@@ -52,13 +52,13 @@ export default {
 
 .nav_wrapper {
   position: absolute;
-  height: 100em;
+  height: 100vh;
   background-color: $black;
 }
 
 .about {
   background: $beige;
-  height: 100em;
+  height: 100vh;
 
   .about_content {
     display: flex;
@@ -92,21 +92,21 @@ export default {
       margin-bottom: auto;
 
       .about_leader {
-        font-size: 4.2em;
+        font-size: 3em;
         font-family: $PT;
         margin: 1em;
       }
 
       .about_text {
         font-weight: 600;
-        font-size: 1.4em;
+        font-size: 1em;
         font-family: $worksans;
         line-height: 1.6em;
         margin: 1em;
       }
 
       p {
-        font-size: 1.2em;
+        font-size: 1em;
         font-family: $worksans;
         line-height: 1.6em;
         margin: 1em;
