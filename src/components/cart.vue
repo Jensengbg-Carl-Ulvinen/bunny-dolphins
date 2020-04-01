@@ -89,7 +89,7 @@ export default {
       }
     },
     sendOrder(cart) {
-      this.$store.dispatch("sendOrder");
+      this.$store.dispatch("postOrder");
       this.$router.push("/status");
     }
   }
@@ -100,16 +100,15 @@ export default {
 .order_wrapper {
   display: flex;
   flex-direction: column;
-  margin: 2em;
   padding: 2em;
-  width: 500px;
+  width: 100%;
   height: 100%;
   background: $white;
   .order_list {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 100%;
+    width: 90%;
   }
   h1 {
     padding-bottom: 1em;
@@ -119,8 +118,7 @@ export default {
   }
 }
 .header {
-  margin: 2em;
-  width: 500px;
+  width: 100%;
   height: 10rem;
   background-image: url("../assets/graphics/graphics-header.svg");
   background-size: fill;
@@ -212,7 +210,7 @@ export default {
     font-weight: 300;
     padding: 0.8rem;
     margin-top: 8rem;
-    width: 150px;
+    width: 15rem;
     cursor: pointer;
   }
 }
