@@ -19,7 +19,7 @@ import {mapGetters, mapActions } from 'vuex';
 export default {
   name: "Status",
   methods: {
-    ...mapActions(["sendOrder"])
+    ...mapActions(["postOrder"])
   },
   computed: mapGetters(['orderStatus'])
 }
