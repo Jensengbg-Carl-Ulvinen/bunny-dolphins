@@ -83,7 +83,7 @@ export default {
     },
     openCart() {
       clearInterval(this.$store.state.order.intervalID);
-      this.$store.dispatch("sendOrder");
+      this.$store.dispatch("postOrder");
 
       //will connect the dots when albin is ready with orderstatus
 
