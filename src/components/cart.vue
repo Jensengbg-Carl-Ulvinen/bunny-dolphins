@@ -35,7 +35,7 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
 name: 'Cart',
 methods: {
-  ...mapActions(['sendOrder'])
+  ...mapActions(['postOrder'])
 },
 computed: mapGetters(['orderStatus']),
 vuexNumberOfCartItemsData() {

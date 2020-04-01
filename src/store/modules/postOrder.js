@@ -49,45 +49,48 @@ const postOrder = {
     }
   },
 
-      async sendOrder({ commit, state }, url) {
-        let sum = 0;
-        state.cart.forEach(obj => {
-          sum += obj.totPrice;
-        });
+  async postOrder({
+    commit,
+    state
+  }, url) {
+    let sum = 0;
+    state.cart.forEach(obj => {
+      sum += obj.totPrice;
+    });
 
-      let order = {
-        created: date,
-        cart: state.cart,
-        totalValue: sum,
-      };
+    let order = {
+      created: date,
+      cart: state.cart,
+      totalValue: sum,
+    };
 
-      fetch("http://localhost:5000/api/orders", {
-          method: "POST",
-          body: JSON.stringify(order),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data) {
-            commit("orderStatus", data);
+    fetch("http://localhost:5000/api/orders", {
+        method: "POST",
+        body: JSON.stringify(order),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          commit("orderStatus", data);
 
-            if (data.userUuid == null) {
-              let localOrders = JSON.parse(localStorage.getItem("orders"));
-              if (localOrders == null) {
-                localOrders = [];
-              }
-              localOrders.push(data.uuid);
-              localStorage.setItem("orders", JSON.stringify(localOrders));
-              let test = JSON.parse(localStorage.getItem("orders"));
+          if (data == null) {
+            let localOrders = JSON.parse(localStorage.getItem("orders"));
+            if (localOrders == null) {
+              localOrders = [];
             }
+            localOrders.push(data);
+            localStorage.setItem("orders", JSON.stringify(localOrders));
+            let test = JSON.parse(localStorage.getItem("orders"));
           }
-        })
-        .catch(error => {
-          console.error("Error:", error);
-        });
-    }
-  };
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+  }
+};
 
 export default postOrder;
