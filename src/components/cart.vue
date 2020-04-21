@@ -1,7 +1,7 @@
 <template>
   <div class="main_cart">
     <div class="header">
-      <Nav v-if="openNav" @closeNav="nav" class="nav-overlay" />
+      <Nav v-if="openNav" @closeNav="nav" class="nav_overlay" />
       <button class="button_nav">
         <img src="../assets/graphics/navicon.svg" />
       </button>
@@ -17,15 +17,15 @@
       <li class="order_list" v-for="product in cart" :key="product.id">
         <div class="title_product">
           <h2>{{ product.title }}</h2>
-          <span class="span_dot"></span>
+
         </div>
         <div class="product_price">
           <p>{{ product.price * product.quantity }}kr</p>
           <div class="arrow">
             <div class="vertical">
-              <img @click="addProd" src="../assets/graphics/arrow-up.svg" />
+              <img @click="addProd(product)" src="../assets/graphics/arrow-up.svg" />
               <h2>{{ product.quantity }}</h2>
-              <img @click="delProd" src="../assets/graphics/arrow-down.svg" />
+              <img @click="delProd(product)" src="../assets/graphics/arrow-down.svg" />
             </div>
           </div>
         </div>
@@ -33,23 +33,21 @@
       <div class="total">
         <h2 class="total_text">Total</h2>
       </div>
-      <span class="span_dot"></span>
-      <h2 class="total_price">{{ /* we need to fetch total price here */ }} kr</h2>
+
+      <h2 class="total_price">{{ sum }} kr</h2>
       <p>inkl moms + drönarleverans</p>
       <div class="button">
-        <button @click="sendOrder" class="button_checkout">Take my money!</button>
+        <button @click="postOrder(cart)" class="button_checkout">Take my money!</button>
       </div>
     </div>
   </div>
 </template>
+
 <script>
-import Nav from "@/components/nav.vue";
-import { mapActions, mapState, mapMethods, mapMutations } from "vuex";
+import Nav from "../components/nav";
 export default {
   name: "Cart",
-  components: {
-    Nav
-  },
+  components: { Nav },
   data() {
     return {
       openNav: false
@@ -57,11 +55,17 @@ export default {
   },
   computed: {
     cart() {
+
       return this.$store.state.order.cart;
+
+    },
+    sum() {
+
+      let sum = 0;
+      this.cart.forEach(order => (sum += order.totPrice));
+      return sum;
+
     }
-  },
-  cartTotal() {
-    return this.countTotal();
   },
   methods: {
     nav() {
@@ -72,29 +76,32 @@ export default {
       }
     },
     openCart() {
+
       this.$router.push("/menu");
+
     },
-    addProd(product) {
-      let products = this.cart.find(id => id.product_id === product.product_id);
-      products.quantity++;
-      this.updateShoppingCart(products);
+   addProd(product) {
+
+      this.$store.commit("addProd", product);
+
     },
     delProd(product) {
-      let products = this.cart.find(id => id.product_id === product.product_id);
-      if (products.quantity == 1) {
-        this.removeFromShoppingCart(products);
-      } else {
-        products.quantity--;
-        this.updateShoppingCart(products);
-      }
+
+      this.$store.commit("delProd", product);
+
     },
-    sendOrder(cart) {
+    postOrder() {
+
+      clearInterval(this.$store.state.order.intervalID);
+      this.$store.dispatch("fetchOrderHistory");
       this.$store.dispatch("postOrder");
       this.$router.push("/status");
+
     }
   }
 };
 </script>
+
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
 .order_wrapper {
@@ -145,6 +152,9 @@ export default {
       width: 1.6rem;
       height: 2.1rem;
       border-radius: 0%;
+      .button_checkout{
+        font-size: 1.2rem;
+      }
     }
   }
   .circle {

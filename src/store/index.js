@@ -1,8 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import fetchMenu from "@/store/modules/fetchMenu.js";
+import fetchCart from "@/store/modules/fetchCart.js";
+import postUser from "./modules/postUser";
 import postOrder from "@/store/modules/postOrder.js";
-import cart from "@/store/modules/cart.js";
+import fetchOrderHistory from "./modules/fetchOrderHistory";
+import fetchUuid from "./modules/fetchUuid";
+
+//jag tror allting funkar som det ska här i storen nu efter mycket tinkrande
+//med att dela upp det in modules och mycket hjälp på traven, hittar du några fel i modulerna Albin?
 
 Vue.use(Vuex);
 
@@ -12,7 +18,10 @@ actions: {},
 getters: {},
 modules: {
   menu: fetchMenu,
+  cart: fetchCart,
+  register: postUser,
   order: postOrder,
-  cart: cart
+  uuid: fetchUuid,
+  orders: fetchOrderHistory,
 }
 });

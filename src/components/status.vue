@@ -12,10 +12,12 @@
     <template v-else>
       <h1 v-if="this.$store.state.order.activeOrder">Din beställning är på väg!</h1>
       <h1 v-else>Din beställning är framme!</h1>
+
       <button @click="redirect" class="redirect_button">Ok, cool!</button>
     </template>
   </div>
 </template>
+
 <script>
 export default {
   computed: {
@@ -30,6 +32,9 @@ export default {
   }
 };
 </script>
+
+<!-- mycket snyggare med scss Albin! looks goowd -->
+
 <style lang="scss" scoped>
 @import "../assets/scss/variables.scss";
 .status_page {
@@ -39,7 +44,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 92rem;
+  height: 90vh;
   padding: 5rem;
   h1 {
     color: $white;
@@ -69,4 +74,5 @@ export default {
   border-radius: 3rem;
   cursor: pointer;
 }
+
 </style>
