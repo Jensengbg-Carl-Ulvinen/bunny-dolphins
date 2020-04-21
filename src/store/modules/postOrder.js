@@ -6,17 +6,18 @@ const postOrder = {
     },
     cart: [],
     cart_counter: 0,
+    intervalID: "",
     activeOrder: false
   },
   mutations: {
-
+    //Cartens state, här passas ordrar in
     orderStatus(state, order) {
       state.cart = [];
       state.cart_counter = 0;
       state.orderStatus.orderNr = order.orderNr;
       state.activeOrder = true;
     },
-
+    // lägg till produkter ifrån menyn
     addToCart(state, product) {
       const productObj = Object.assign({}, product);
       const index = state.cart.findIndex(obj => obj.id === productObj.id);
@@ -31,66 +32,80 @@ const postOrder = {
       }
       state.cart_counter++;
     },
-
-    removeOneProduct(state, product) {
+    // ta bort en product - åkallas i cart
+    delProd(state, product) {
       const index = state.cart.findIndex(obj => obj.id === product.id);
+      const price = state.cart[index].price;
       if (state.cart[index].quantity === 1) {
-        state.cart[index].splice(index, 1);
+        state.cart.splice(index, 1);
       } else {
         state.cart[index].quantity -= 1;
+        state.cart[index].totPrice -= price
       }
       state.cart_counter--;
     },
-
-    addOneProduct(state, product) {
+    // addera en produkt - åkallas i cart
+    addProd(state, product) {
       const index = state.cart.findIndex(obj => obj.id === product.id);
+      const price = state.cart[index].price;
       state.cart[index].quantity += 1;
+      state.cart[index].totPrice += price
       state.cart_counter++;
     }
   },
+  actions: {
+    //Async functions som åkallas när vi skickar ordern.
+    async postOrder({
+      commit,
+      state
+    }, url) {
+      //Tilldela datum
 
-  async postOrder({
-    commit,
-    state
-  }, url) {
-    let sum = 0;
-    state.cart.forEach(obj => {
-      sum += obj.totPrice;
-    });
+      const dateObj = new Date();
+      const month = dateObj.getUTCMonth() + 1;
+      const day = dateObj.getUTCDate();
+      const year = dateObj.getUTCFullYear();
+      const date = year + "/" + month + "/" + day;
 
-    let order = {
-      created: date,
-      cart: state.cart,
-      totalValue: sum,
-    };
-
-    fetch("http://localhost:5000/api/orders", {
-        method: "POST",
-        body: JSON.stringify(order),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data) {
-          commit("orderStatus", data);
-
-          if (data == null) {
-            let localOrders = JSON.parse(localStorage.getItem("orders"));
-            if (localOrders == null) {
-              localOrders = [];
-            }
-            localOrders.push(data);
-            localStorage.setItem("orders", JSON.stringify(localOrders));
-            let test = JSON.parse(localStorage.getItem("orders"));
-          }
-        }
-      })
-      .catch(error => {
-        console.error("Error:", error);
+      let sum = 0;
+      state.cart.forEach(obj => {
+        sum += obj.totPrice;
       });
-  }
+
+      const userUuid = localStorage.getItem("uuid");
+
+      let order = {
+        created: date,
+        cart: state.cart, //cartens innehåll
+        totalValue: sum, //summan av innehållet
+        userUuid: userUuid //addera ett userUuid
+      };
+
+      fetch("http://localhost:5000/api/orders", {
+          method: "POST",
+          body: JSON.stringify(order),
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data) {
+            commit("orderStatus", data);
+
+            // Om du inte har skapat konto sparas orderns i localstorage
+            if (data.userUuid == null) {
+              let localOrders = JSON.parse(localStorage.getItem("orders"));
+              if (localOrders == null) {
+                localOrders = [];
+              }
+              localOrders.push(data.uuid);
+              localStorage.setItem("orders", JSON.stringify(localOrders));
+            }
+          }
+        })
+      }
+   }
 };
 
 export default postOrder;

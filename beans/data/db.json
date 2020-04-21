@@ -1,0 +1,182 @@
+{
+  "users": [
+    {},
+    {
+      "uuid": null,
+      "name": "sfasf",
+      "email": "fasfasf"
+    },
+    {
+      "uuid": "cd4dd02e-d279-42b0-ba36-cb79df0dedbb",
+      "name": "GSGAS",
+      "email": "ASFASF"
+    },
+    {
+      "uuid": "516770dd-d869-4fc5-adbe-3cb35011d93b",
+      "name": "kaffe",
+      "email": "kaffelainen"
+    }
+  ],
+  "orders": [
+    {},
+    {
+      "uuid": "f09d5db5-3280-4651-a2b8-cfacbbd76b50",
+      "orderNr": "AB1587461866887B",
+      "created": "2020/4/21",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 3,
+          "totPrice": 117
+        }
+      ],
+      "totalValue": 117,
+      "userUuid": "beb116aa-d7f5-4bcb-8aba-8b6318087cd4"
+    },
+    {
+      "uuid": "f3bb0d48-67c6-4da7-919f-706bd2d78f64",
+      "orderNr": "AB1587462022435C",
+      "created": "2020/4/21",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 78,
+      "userUuid": "beb116aa-d7f5-4bcb-8aba-8b6318087cd4"
+    },
+    {
+      "uuid": "276bbfe5-1a94-41d3-a912-1cb78319e901",
+      "orderNr": "AB1587462653304A",
+      "created": "2020/4/21",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 3,
+          "totPrice": 117
+        }
+      ],
+      "totalValue": 117,
+      "userUuid": null
+    },
+    {
+      "uuid": "131972b3-6614-48b1-b42b-e0b68b4b1424",
+      "orderNr": "AB1587462720233C",
+      "created": "2020/4/21",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 78,
+      "userUuid": "cd4dd02e-d279-42b0-ba36-cb79df0dedbb"
+    },
+    {
+      "uuid": "fc31518d-2b56-4f4b-bf32-dbeb153f8754",
+      "orderNr": "AB1587462739585A",
+      "created": "2020/4/21",
+      "cart": [
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 78,
+      "userUuid": "cd4dd02e-d279-42b0-ba36-cb79df0dedbb"
+    },
+    {
+      "uuid": "7984d7ba-2012-4a02-aabc-0a488c148337",
+      "orderNr": "AB1587462775424C",
+      "created": "2020/4/21",
+      "cart": [
+        {
+          "id": 5,
+          "title": "Kaffe Latte",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 54,
+          "quantity": 6,
+          "totPrice": 324
+        }
+      ],
+      "totalValue": 324,
+      "userUuid": "516770dd-d869-4fc5-adbe-3cb35011d93b"
+    },
+    {
+      "uuid": "76dc9700-a393-4722-9044-cd031019ff7e",
+      "orderNr": "AB1587462809401B",
+      "created": "2020/4/21",
+      "cart": [
+        {
+          "id": 2,
+          "title": "Caffè Doppio",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        },
+        {
+          "id": 3,
+          "title": "Cappuccino",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        },
+        {
+          "id": 4,
+          "title": "Latte Macchiato",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 49,
+          "quantity": 1,
+          "totPrice": 49
+        },
+        {
+          "id": 5,
+          "title": "Kaffe Latte",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 54,
+          "quantity": 1,
+          "totPrice": 54
+        },
+        {
+          "id": 6,
+          "title": "Cortado",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 1,
+          "totPrice": 39
+        },
+        {
+          "id": 1,
+          "title": "Bryggkaffe",
+          "desc": "Bryggd på månadens bönor.",
+          "price": 39,
+          "quantity": 2,
+          "totPrice": 78
+        }
+      ],
+      "totalValue": 318,
+      "userUuid": "516770dd-d869-4fc5-adbe-3cb35011d93b"
+    }
+  ]
+}

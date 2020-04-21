@@ -22,6 +22,8 @@ export default {
 }
 </script>
 
+<!-- dags att göra om till scss, Albin? tog bort overflown iaf så man kan scrolla -->
+
 <style>
 * {
   margin: 0;
@@ -30,7 +32,6 @@ export default {
 body {
   background-color: #58bf94;
   width: 100%;
-  overflow: hidden;
 }
 #landing {
   display: grid;

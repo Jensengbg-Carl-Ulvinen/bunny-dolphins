@@ -11,9 +11,9 @@
         <span class="line"></span>
         <p @click="about">Vårt Kaffe</p>
         <span class="line"></span>
-        <p @click="min_profil">Min Profil </p>
+        <p @click="myProfile">Min Profil </p>
         <span class="line"></span>
-        <p @click="orderstatus">Orderstatus </p>
+        <p @click="orderStatus">Orderstatus </p>
       </section>
     </section>
   </div>
@@ -25,7 +25,6 @@ export default {
     closeNav() {
       this.$emit("closeNav");
     },
-
     menu() {
       if (this.$route.path !== "/menu") {
         this.$router.push("/menu");
@@ -33,12 +32,38 @@ export default {
         this.closeNav();
       }
     },
-
     about() {
       if (this.$route.path !== "/about") {
         this.$router.push("/about");
       } else {
         this.closeNav();
+      }
+    },
+    orderStatus() {
+      this.$router.push("/status");
+      // if (this.$store.state.order.activeOrder === true) {
+      //   if (this.$route.path !== "/order-status") {
+      //     this.$router.push("/order-status");
+      //   } else {
+      //     this.closeNav();
+      //   }
+      // }
+    },
+    myProfile() {
+      if (localStorage.getItem("uuid")) {
+        if (this.$route.path !== "/profile") {
+          this.$router.push("/profile");
+        } else {
+          this.closeNav();
+        }
+      } else {
+        if (this.$route.path !== "/profile") {
+          this.$store.dispatch("getUuid");
+          this.$router.push("/profile");
+        } else {
+          this.$store.dispatch("getUuid");
+          this.closeNav();
+        }
       }
     }
   }
