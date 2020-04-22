@@ -22,15 +22,16 @@ export default {
 }
 </script>
 
-<!-- dags att göra om till scss, Albin? tog bort overflown iaf så man kan scrolla -->
 
-<style>
+<style lang="scss">
+@import "../assets/scss/variables.scss";
+
 * {
   margin: 0;
   padding: 0;
 }
 body {
-  background-color: #58bf94;
+  background-color: $green;
   width: 100%;
 }
 #landing {
@@ -51,22 +52,20 @@ body {
   align-content: start;
   margin-right: 9rem;
 }
-#leaf-left {
-  width: 200%;
-  height: 100%;
-}
+#leaf-left,
 #leaf-right {
   width: 200%;
   height: 100%;
 }
+
 #center {
   display: grid;
   justify-content: center;
   align-content: center;
   margin-bottom: 35rem;
-  color: #ffffff;
+  color: $white;
 }
 #title {
-  background-size: 200px 30px;
+  background-size: 12.5rem 1.875rem;
 }
 </style>
