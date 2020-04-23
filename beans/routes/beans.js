@@ -5,7 +5,7 @@ const router = new Router();
 const fs = require("fs");
 const uuid = require("uuid-random");
 const {
-  getOrderNr
+  getOrderNr, getETA
 } = require("../utils/utils");
 
 router.get("/", async (req, res) => {
@@ -15,7 +15,8 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   const order = {
-    orderNr: getOrderNr()
+    orderNr: getOrderNr(),
+    eta: getETA()
   };
 
   setTimeout(() => {

@@ -13,6 +13,11 @@
       <h1 v-if="this.$store.state.order.activeOrder">Din beställning är på väg!</h1>
       <h1 v-else>Din beställning är framme!</h1>
 
+      <div class="div_eta">
+        <p class="timer_eta">{{order.eta}}</p>
+        <p>minuter</p>
+      </div>
+
       <button @click="redirect" class="redirect_button">Ok, cool!</button>
     </template>
   </div>

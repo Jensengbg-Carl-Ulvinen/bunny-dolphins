@@ -5,7 +5,7 @@ const router = new Router();
 const db = require("../modules/db-operations");
 const uuid = require("uuid-random");
 const {
-  getOrderNr
+  getOrderNr, getETA
 } = require("../utils/utils");
 
 router.get("/", (req, res) => {
@@ -22,6 +22,7 @@ router.post("/", (req, res) => {
   let order = {
     uuid: uuid(),
     orderNr: getOrderNr(),
+    eta: getETA(),
     created: body.created,
     cart: body.cart,
     totalValue: body.totalValue,

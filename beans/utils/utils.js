@@ -9,4 +9,9 @@ function getOrderNr() {
   }`;
 }
 
-module.exports = { getOrderNr };
+function getETA() {
+  let eta = 8;
+  return eta + Math.floor(Math.random() * 16);
+}
+
+module.exports = { getOrderNr, getETA };

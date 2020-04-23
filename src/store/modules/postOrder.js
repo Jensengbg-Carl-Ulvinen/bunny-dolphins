@@ -16,6 +16,29 @@ const postOrder = {
       state.cart_counter = 0;
       state.orderStatus.orderNr = order.orderNr;
       state.activeOrder = true;
+      this.commit("countdown", order.eta);
+    },
+    countdown(state, eta) {
+      const duration = eta * 60;
+      let timer = duration,
+        minutes,
+        seconds;
+      const interval = setInterval(() => {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        state.orderStatus.eta = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+          timer = 0;
+          state.orderStatus.eta = 0;
+          state.activeOrder = false;
+          clearInterval(interval);
+        }
+      }, 1000);
+      state.intervalID = interval;
     },
     // lägg till produkter ifrån menyn
     addToCart(state, product) {
