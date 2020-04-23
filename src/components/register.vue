@@ -30,8 +30,7 @@ export default {
     registerUser() {
       if (
         this.name.length > 0 &&
-        this.email.includes('@') &&
-        this.gdprChecked
+        this.email
       ) {
         const user = { name: this.name, email: this.email };
         this.$store.dispatch("registerUser", user);
