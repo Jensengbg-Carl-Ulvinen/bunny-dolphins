@@ -5,8 +5,4 @@
 </template>
 
 
-<style lang="scss">
-// google fonts
-@import url("https://fonts.googleapis.com/css?family=PT+Serif|Rufina|Work+Sans&display=swap");
-@import "src/assets/scss/variables.scss";
-</style>
+<style lang="scss"></style>

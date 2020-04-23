@@ -7,6 +7,11 @@
     <input class="input_text" v-model="name" type="text" id="name" />
     <label class="label_text" for="email">Epost</label>
     <input class="input_text" v-model="email" type="text" id="email" />
+      <div class="input_gdpr">
+      <input v-model="gdpr" id="radio" class="radio-input" type="radio" name="radio" value="input_gdpr" />
+      <label class="label_radio pop" for="radio"></label>
+      <p class="text_gdpr">GDPR Ok!</p>
+    </div>
 
     <button @click="registerUser" class="register_btn">Brew me a cup!</button>
   </div>
@@ -17,14 +22,16 @@ export default {
   data: () => {
     return {
       name: "",
-      email: ""
+      email: "",
+      gdpr: false
     };
   },
   methods: {
     registerUser() {
       if (
         this.name.length > 0 &&
-        this.email
+        this.email.includes('@') &&
+        this.gdprChecked
       ) {
         const user = { name: this.name, email: this.email };
         this.$store.dispatch("registerUser", user);
@@ -54,6 +61,7 @@ export default {
 
 .register {
   color: $black;
+  padding: 1rem;
   background: $beige;
   display: flex;
   flex-direction: column;
@@ -85,13 +93,6 @@ export default {
     padding: 12px;
     background: none;
   }
-  .checkbox-input {
-    cursor: pointer;
-    width: 2rem;
-    height: 2rem;
-    border: 1px solid $black;
-    border-radius: 100%;
-  }
   .input_gdpr {
     margin: 2rem 0;
     height: 1rem;
@@ -103,17 +104,15 @@ export default {
       width: 0;
       height: 0;
     }
-    .radio_input{
-      background: black;
-    }
-
     .label_radio {
       cursor: pointer;
+      border: 1px solid $black;
       background-color: $beige;
       padding: 7px 7px;
       border-radius: 100%;
     }
     input[type="radio"]:checked + label {
+      border: 1px solid $black;
       background-color: #0e927d;
     }
     .text_gdpr {
