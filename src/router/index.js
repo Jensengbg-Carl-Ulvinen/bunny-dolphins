@@ -4,7 +4,7 @@ import Landing from "@/views/landing.vue"
 import About from "@/views/about.vue";
 import Menu from "@/views/menu.vue";
 import Cart from '@/components/cart.vue'
-import OrderStatus from '@/components/status.vue'
+import Status from '@/components/status.vue'
 import Profile from "@/views/profile.vue";
 
 
@@ -28,8 +28,8 @@ const routes = [
   },
   {
     path: "/status",
-    name: "OrderStatus",
-    component: OrderStatus
+    name: "Status",
+    component: Status
   },
   {
     path: "/cart",

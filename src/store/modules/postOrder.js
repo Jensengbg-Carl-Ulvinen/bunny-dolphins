@@ -1,20 +1,20 @@
 const postOrder = {
   state: {
-    orderStatus: {
+    status: {
       orderNr: "",
       eta: ""
     },
     cart: [],
-    cart_counter: 0,
+    counter: 0,
     intervalID: "",
     activeOrder: false
   },
   mutations: {
     //Cartens state, här passas ordrar in
-    orderStatus(state, order) {
+    status(state, order) {
       state.cart = [];
-      state.cart_counter = 0;
-      state.orderStatus.orderNr = order.orderNr;
+      state.counter = 0;
+      state.status.orderNr = order.orderNr;
       state.activeOrder = true;
       this.commit("countdown", order.eta);
     },
@@ -29,11 +29,11 @@ const postOrder = {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        state.orderStatus.eta = minutes + ":" + seconds;
+        state.status.eta = minutes + ":" + seconds;
 
         if (--timer < 0) {
           timer = 0;
-          state.orderStatus.eta = 0;
+          state.status.eta = 0;
           state.activeOrder = false;
           clearInterval(interval);
         }
@@ -53,7 +53,7 @@ const postOrder = {
         productObj.totPrice = productObj.price;
         state.cart.push(productObj);
       }
-      state.cart_counter++;
+      state.counter++;
     },
     // ta bort en product - åkallas i cart
     delProd(state, product) {
@@ -65,7 +65,7 @@ const postOrder = {
         state.cart[index].quantity -= 1;
         state.cart[index].totPrice -= price
       }
-      state.cart_counter--;
+      state.counter--;
     },
     // addera en produkt - åkallas i cart
     addProd(state, product) {
@@ -73,7 +73,7 @@ const postOrder = {
       const price = state.cart[index].price;
       state.cart[index].quantity += 1;
       state.cart[index].totPrice += price
-      state.cart_counter++;
+      state.counter++;
     }
   },
   actions: {
@@ -114,7 +114,7 @@ const postOrder = {
         .then(response => response.json())
         .then(data => {
           if (data) {
-            commit("orderStatus", data);
+            commit("status", data);
 
             // Om du inte har skapat konto sparas orderns i localstorage
             if (data.userUuid == null) {

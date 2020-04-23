@@ -1,7 +1,7 @@
 export default {
   state: {
     cart: [],
-    numberOfCartItems: 0,
+    itemNr: 0,
     showCart: false,
     isOpen: false,
     loadingOrder: false
@@ -11,7 +11,7 @@ export default {
     //lägg till items
     addItemToCart(state, menuItem) {
       state.cart.push(menuItem);
-      state.numberOfCartItems++;
+      state.itemNr++;
     },
     //öppna menyn från carten
     toggleMenu(state, toggle) {
@@ -29,11 +29,11 @@ export default {
       const item = state.cart.find(item => item.id === payload.cartItemId);
       if (payload.action === 'add') {
         item.quantity++;
-        state.numberOfCartItems++;
+        state.itemNr++;
       } else if (payload.action === 'subtract') {
         if (item.quantity != 0) {
           item.quantity--;
-          state.numberOfCartItems--;
+          state.itemNr--;
         }
       }
     },

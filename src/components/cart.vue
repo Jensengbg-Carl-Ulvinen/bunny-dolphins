@@ -9,7 +9,7 @@
         <img src="../assets/graphics/bag.svg" />
       </button>
       <div class="circle">
-        <h3 class="circle_quantity">{{ $store.state.order.cart_counter }}</h3>
+        <h3 class="circle_quantity">{{ $store.state.order.counter }}</h3>
       </div>
     </div>
     <div class="order_wrapper">

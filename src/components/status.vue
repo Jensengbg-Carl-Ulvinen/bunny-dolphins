@@ -27,7 +27,7 @@
 export default {
   computed: {
     order() {
-      return this.$store.state.order.orderStatus;
+      return this.$store.state.order.status;
     }
   },
   methods: {
@@ -65,6 +65,17 @@ export default {
       margin-right: 0.5rem;
     }
     .number {
+      font-weight: 600;
+    }
+  }
+    .div_eta {
+    display: flex;
+    p {
+      font-size: 2.2rem;
+      font-family: $worksans;
+      margin-left: 0.5rem;
+    }
+    .timer_eta {
       font-weight: 600;
     }
   }

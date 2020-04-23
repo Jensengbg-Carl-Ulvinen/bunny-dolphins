@@ -118,6 +118,7 @@ export default {
   background: url("../assets/graphics/graphics-header.svg") top no-repeat;
 
   .main_content {
+    font-family: $worksans;
     height: 100%;
     width: 100%;
     display: flex;
